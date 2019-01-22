@@ -22,7 +22,6 @@ const counter = () => {
 const newCounter = counter();
 console.log(newCounter());
 console.log(newCounter());
-console.log(newCounter());
 
 /* STRETCH PROBLEM, Do not attempt until you have completed all previous tasks for today's project files */
 
@@ -31,4 +30,22 @@ const counterFactory = () => {
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
   // `decrement` should decrement the counter variable and return it.
-};
+  let count = 0;
+  return {
+    increment: function () {
+      return ++count;
+    },
+    decrement: function () {
+      return --count;
+    },
+    value: function () {
+      return count;
+    }
+  };
+}
+
+const newStrechCounter = counterFactory();
+console.log(newStrechCounter.value());
+console.log(newStrechCounter.increment());
+console.log(newStrechCounter.increment());
+console.log(newStrechCounter.decrement());
